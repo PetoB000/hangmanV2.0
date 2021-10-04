@@ -5,12 +5,11 @@ def play(word, lives):
     bingo = False
     wordLines = ('_' * len(word))
     guessed = []
-    print("Hello brave one, it is time to play a game")
     while lives > 0 and bingo == False:
-        #clear()
         #display(lives)
         print(wordLines)
         guess = input("A").upper()
+        #clear()
         guessed.append(guess)
         if guess == word:
             print("Wow, You're really good!")
@@ -44,6 +43,12 @@ def play(word, lives):
             print("Better luck next time")
             #restart()
 
+def getWelcomeMessage():
+    messages = ["Welcome brave one! Think you can outsmart me?\nWe will see about that",
+                "Coming back for a round 2 huh? I'm in",
+                "Aren't you getting tired yet?",
+                ]
+    return messages
 
 
 def quit():
@@ -52,20 +57,41 @@ def quit():
 def prints():
     pass
 
+
 def menu():
-    pass
+    welcomeMessage = getWelcomeMessage()
+    tries =
+    while True:
+        if tries == 0:
+            print(welcomeMessage[0])
+        elif tries == 1:
+            print(welcomeMessage[1])
+        else:
+            print(welcomeMessage[2])
+        choice = input("")
 
 def difficulty():
     pass
 
 def restart():
-    pass
+    option = input("Do you want to play again?\n(Y/N)").upper()
+    if option == "Y":
+        choice = input("Do you want to change settings?\n(Y/N)").upper()
+        if choice == "Y":
+            menu()
+        elif choice == "N":
+            play(word, lives)
+    else:
+        quit()
 
 def clear():
     pass
 
-def getLives():
-    pass
+def getLives(choice):
+    if choice == '1':
+        lives = 6
+    if choice == '2':
+        lives = 3
 
 def getWord():
     pass
@@ -74,4 +100,4 @@ def display(lives):
     pass
 
 if __name__ == '__main__':
-    play(word, lives)
+    menu()
